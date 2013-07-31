@@ -1,0 +1,2 @@
+manialive-plugins
+=================

@@ -22,4 +22,4 @@ ManiaLivePlugins\NadeoLive\AutoTweet\Config.twitterConsumerKey = ''
 ManiaLivePlugins\NadeoLive\AutoTweet\Config.twitterConsumerSecret = ''
 ```
 
-To obtain twitter oauth tokens and keys, create an application on (twitter dev website)[https://dev.twitter.com/apps]. 
+To obtain twitter oauth tokens and keys, create an application on [twitter dev website](https://dev.twitter.com/apps). 

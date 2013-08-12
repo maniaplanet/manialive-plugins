@@ -23,3 +23,24 @@ ManiaLivePlugins\NadeoLive\AutoTweet\Config.twitterConsumerSecret = ''
 ```
 
 To obtain twitter oauth tokens and keys, create an application on [twitter dev website](https://dev.twitter.com/apps). 
+
+
+## XmlRpcScript
+
+It's a plumbing script which allows you to receive XmlRpc events from script as ManiaLive events. 
+
+### Usage
+
+In the function `onLoad` of your plugin :
+
+```
+\ManiaLive\Event\Dispatcher::register(\ManiaLivePlugins\NadeoLive\XmlRpcScript\Event::getClass(), $this);
+```
+
+Then, the functions will be called from your plugin :
+
+```
+function onXmlRpcEliteArmorEmpty($content);
+function onXmlRpcEliteShoot($content);
+function onXmlRpcEliteHit($content);
+```

@@ -1,5 +1,5 @@
 {
-    "name": "maniaplanet/manialive",
+    "name": "maniaplanet/manialive-plugins",
     "type": "library",
     "description": "ManiaLive plugins",
     "keywords": ["maniaplanet", "shootmania", "trackmania", "application", "xml-rpc", "socket"],

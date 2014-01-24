@@ -4,7 +4,7 @@
     "description": "ManiaLive plugins",
     "keywords": ["maniaplanet", "shootmania", "trackmania", "application", "xml-rpc", "socket"],
     "homepage": "https://github.com/maniaplanet/manialive-plugins",
-	"license": "LGPL-3.0",
+    "license": "LGPL-3.0",
     "authors": [
         {
             "name": "NadeoLive",
@@ -12,7 +12,7 @@
             "homepage": "http://www.nadeo.com/"
         }
     ],
-	"support": {
+    "support": {
         "forum": "http://forum.maniaplanet.com/viewforum.php?f=463"
     },
     "require": {
@@ -20,7 +20,12 @@
         "ext-curl": "*",
         "ext-json": "*"
     },
-	"require": {
+    "require": {
         "maniaplanet/manialive": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "ManiaLivePlugins\\": "/"
+        }
     }
 }

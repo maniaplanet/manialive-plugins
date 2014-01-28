@@ -2,7 +2,7 @@
     "name": "maniaplanet/manialive-plugins",
     "type": "library",
     "description": "ManiaLive plugins",
-    "keywords": ["maniaplanet", "shootmania", "trackmania", "application", "xml-rpc", "socket"],
+    "keywords": ["maniaplanet", "shootmania", "trackmania", "manialive",
     "homepage": "https://github.com/maniaplanet/manialive-plugins",
     "license": "LGPL-3.0",
     "authors": [

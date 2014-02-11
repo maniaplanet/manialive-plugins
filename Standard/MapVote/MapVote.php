@@ -173,7 +173,7 @@ class MapVote extends \ManiaLive\PluginHandler\Plugin
 		$player = $this->storage->players[$login];
 		$this->db->execute(
 				'INSERT INTO `Votes` (`login`, `lp`, `mapUid`, `mapName`, `vote`) ' .
-				'VALUES (%s, %d, %s, %s, %d, %s) ' .
+				'VALUES (%s, %d, %s, %s, %d) ' .
 				'ON DUPLICATE KEY UPDATE vote=VALUES(vote), lp=VALUES(lp), mapName=VALUES(mapName)',
 				$this->db->quote($login),
 				$player->ladderStats['PlayerRankings'][0]['Score'],

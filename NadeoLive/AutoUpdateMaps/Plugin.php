@@ -33,7 +33,7 @@ class Plugin extends \ManiaLive\PluginHandler\Plugin
 	function onTick()
 	{
 		$now = new \DateTime();
-		if ($now->sub(new DateInterval('P2H')) < $this->lastCheck)
+		if ($now->sub(new \DateInterval('PT2H')) < $this->lastCheck)
 		{
 			$this->check();
 		}
@@ -70,10 +70,14 @@ class Plugin extends \ManiaLive\PluginHandler\Plugin
 		$this->connection->executeMulticall();
 		
 		//Add new maps
-		$newMaps = scandir($this->getLatestMapDirectory());
+		$newMapsDirectory = $this->getLatestMapDirectory();
+		$newMaps = scandir($newMapsDirectory);
 		foreach ($newMaps as $map)
 		{
-			$this->connection->addMap($config->relativeAutoMapsDirectory.DIRECTORY_SEPARATOR.$map, true);
+			if (!in_array($map,array(".","..")))
+			{
+				$this->connection->addMap($newMapsDirectory.DIRECTORY_SEPARATOR.$map, true);
+			}
 		}
 		$this->connection->executeMulticall();
 	}

@@ -33,7 +33,7 @@ class Plugin extends \ManiaLive\PluginHandler\Plugin
 	function onTick()
 	{
 		$now = new \DateTime();
-		if ($now->sub(new \DateInterval('PT2H')) < $this->lastCheck)
+		if ($now->sub(new \DateInterval('PT2H')) > $this->lastCheck)
 		{
 			$this->check();
 		}
@@ -80,6 +80,7 @@ class Plugin extends \ManiaLive\PluginHandler\Plugin
 			}
 		}
 		$this->connection->executeMulticall();
+		\ManiaLive\Utilities\Logger::debug(sprintf('Maps updated: %s', implode(', ', $newMaps)));
 	}
 	
 	/**

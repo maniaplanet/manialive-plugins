@@ -13,7 +13,7 @@ namespace ManiaLivePlugins\Standard\Profiler\Gui\Controls;
 
 use ManiaLib\Gui\Elements\Label;
 use ManiaLive\Database\Connection;
-use DedicatedApi\Xmlrpc\Client;
+use Maniaplanet\DedicatedServer\Xmlrpc\Client;
 use ManiaLive\Gui\GuiHandler;
 use ManiaLive\PluginHandler\PluginHandler;
 use ManiaLive\Threading\ThreadHandler;
@@ -81,21 +81,12 @@ class OverviewTab extends \ManiaLive\Gui\Controls\Tabbable implements MonitorLis
 		$text .= '$oManiaLive$z'."\n";
 		
 		// runtime
-		$diff = time() - \ManiaLive\Application\AbstractApplication::$startTime;
+		$diff = time() - \ManiaLive\Application\Application::$startTime;
 		$seconds = $diff % 60;
 		$minutes = floor($diff % 3600 / 60);
 		$hours = floor($diff % 86400 / 3600);
 		$days = floor($diff / 86400);
 		$text .= "ManiaLive Uptime:\n$days days and $hours hours\n$minutes min and $seconds seconds\n";
-		
-		// threading
-		$text .= '$oThreading$z'."\n";
-		$processHandler = ThreadHandler::getInstance();
-		if($processHandler->isEnabled())
-			$text .= 'Enabled; Running:'.$processHandler->countThreads().'; Restarted:'.$processHandler->countRestartedThreads()."\n"
-					.$processHandler->countFinishedCommands().' commands finished at avg '.round($processHandler->getAverageResponseTime(), 3).' ms';
-		else
-			$text .= "Disabled\n";
 		
 		// update left side of the page
 		$this->leftLabel->setText($text);
